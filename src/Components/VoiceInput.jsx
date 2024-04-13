@@ -5,22 +5,112 @@ const VoiceInput = () => {
     const [expression, setExpression] = useState('');
   const [result, setResult] = useState('');
 
+
   const handleVoiceInput = () => {
+
     const recognition = new window.webkitSpeechRecognition();
     recognition.lang = 'en-US';
     recognition.start();
 
+
+    const multiwordoperations = {
+      "bracket start": "(",
+      "bracket end": ")",
+      "bracket open": "(",
+      "bracket close": ")",
+      "opening bracket": "(",
+      "closing bracket": ")",
+      "multiplied by": "*",
+      "divided by": "/",
+      "up on":"/"
+    };
+ 
+  const mappings = {
+  plus: "+",
+  add: "+",
+  subtract: "-",
+  minus: "-",
+  multiply: "*",
+  x:"*",
+  into: "*",
+  times: "*",
+  upon: "/",
+  slash: "/",
+  mod: "%",
+  modoulo: "%",
+  modulus:"%",
+  modulo:"%",
+  result : result,
+  one:"1",
+  two:"2",
+  three:"3",
+  four:"4",
+  five:"5",
+  six:"6",
+  seven:"7",
+  eight:"8",
+  nine:"9"
+};
+
+
+
+    function doesNotContainLetters(str) {
+      // Regular expression to match any character from 'a' to 'z'
+      const regex = /[a-z]/i; // 'i' flag makes the match case-insensitive
+
+      // Test the string against the regular expression
+      return !regex.test(str);
+
+    }
+
     recognition.onresult = (event) => {
       const speechResult = event.results[0][0].transcript;
-      setExpression(speechResult);
+      console.log(speechResult);
+      let LcspeechResult = speechResult.toLowerCase();
+      console.log(LcspeechResult);
+
+      Object.keys(multiwordoperations).forEach((multiword)=>{
+      LcspeechResult =  LcspeechResult.replace(multiword,multiwordoperations[multiword])
+      console.log("replace", multiword, "output:", LcspeechResult);
+      console.log(LcspeechResult);
+
+      })
+
+      console.log(LcspeechResult);
+      const words = LcspeechResult.split(" ");
+      console.log(words);
+      const expressionarr = words.map((word)=>{
+        if(word in mappings){
+          return mappings[word];
+        }
+        if(doesNotContainLetters(word)){
+          return word;
+        }
+        return "";
+      })
+      console.log(expressionarr)
+
+
+      const expression = expressionarr.join("")
+
+      setExpression(expression);
+      console.log(expression);
+      console.log(eval(expression))
+      
       try {
-        const evaluatedResult = math.evaluate(speechResult);
+        const evaluatedResult = eval(expression);
         setResult(evaluatedResult);
       } catch (error) {
         setResult('Invalid expression');
       }
+      finally{
+
+        // console.log("Finally Called");
+        }}
+
+    }
   return (
-    <div>
+    <div className='min-h-screen bg-slate-700 '>
       <h1>Voice Calculator</h1>
       <div>
         <input type="text" value={expression} readOnly />
