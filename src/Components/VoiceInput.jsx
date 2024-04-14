@@ -2,8 +2,8 @@ import React from 'react'
 import { useState } from 'react';
 
 const VoiceInput = () => {
-    const [expression, setExpression] = useState('');
-  const [result, setResult] = useState('');
+    const [expression, setExpression] = useState('Click On Mic to give Command');
+  const [result, setResult] = useState(0);
 
 
   const handleVoiceInput = () => {
@@ -103,24 +103,26 @@ const VoiceInput = () => {
       } catch (error) {
         setResult('Invalid expression');
       }
-      finally{
-
-        // console.log("Finally Called");
-        }}
-
+      // finally{
+      //   // console.log("Finally Called");
+      //   }
+    }
     }
   return (
-    <div className='min-h-screen bg-slate-700 '>
-      <h1>Voice Calculator</h1>
-      <div>
-        <input type="text" value={expression} readOnly />
-        <button onClick={handleVoiceInput}>Start Voice Input</button>
-      </div>
-      <div>
-        <p>Result: {result}</p>
+    <div className=" h-full w-full bg-slate-400 p-4 flex justify-center items-center flex-col  rounded-3xl gap-2">
+      <input type="text" value={expression} readOnly className="border-2 rounded-xl p-2 w-2/3 " />
+
+     
+        <input type="number" readOnly value={result} className="border-2 rounded-xl p-2 w-2/3 " />
+     
+      <div
+        onClick={handleVoiceInput}
+        className="border bg-white rounded-full p-8  cursor-pointer uppercase"
+      >
+        mic
       </div>
     </div>
-  )
+  );
 }
 
 export default VoiceInput
