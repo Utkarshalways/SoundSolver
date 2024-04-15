@@ -13,8 +13,9 @@ function App() {
       <VoiceInput />
       </div>
 
-      <div className='Footer  h-1/4 w-full bg-red-700'>
+      <div className='Footer  h-1/4 w-full bg-red-700 '>
       This is the footer of this web page
+      it will contain the footer part
       </div>
     </div>
   );
