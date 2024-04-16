@@ -109,12 +109,22 @@ const VoiceInput = () => {
     }
     }
   return (
-    <div className=" h-full w-full bg-slate-400 p-4 flex justify-center items-center flex-col  rounded-3xl gap-2">
-      <input type="text" value={expression} readOnly className="border-2 rounded-xl p-2 w-2/3 " />
+    <div className=" h-full w-full bg-slate-400 p-4 flex justify-center items-center flex-col  rounded-3xl gap-14">
+      <div className="w-2/3  justify-center items-center">
+        <input
+          type="text"
+          value={expression}
+          readOnly
+          className="  p-2 w-full rounded-t-xl "
+        />
+        <input
+          type="number"
+          readOnly
+          value={result}
+          className=" rounded-b-xl p-2 w-full "
+        />
+      </div>
 
-     
-        <input type="number" readOnly value={result} className="border-2 rounded-xl p-2 w-2/3 " />
-     
       <div
         onClick={handleVoiceInput}
         className="border bg-white rounded-full p-8  cursor-pointer uppercase"
