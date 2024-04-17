@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 
 const VoiceInput = () => {
-    const [expression, setExpression] = useState('Click On Mic to give Command');
+    const [expression, setExpression] = useState('Click On Mic to Start');
   const [result, setResult] = useState(0);
 
 
@@ -109,7 +109,7 @@ const VoiceInput = () => {
     }
     }
   return (
-    <div className=" h-full w-full bg-slate-400 p-4 flex justify-center items-center flex-col  rounded-3xl gap-14">
+    <div className=" h-full w-full bg-slate-400 p-4 flex justify-center items-center flex-col  rounded-3xl gap-10">
       <div className="w-2/3  justify-center items-center">
         <input
           type="text"
@@ -127,7 +127,7 @@ const VoiceInput = () => {
 
       <div
         onClick={handleVoiceInput}
-        className="border bg-white rounded-full p-8  cursor-pointer uppercase"
+        className="border bg-white rounded-full p-10  cursor-pointer uppercase"
       >
         mic
       </div>
