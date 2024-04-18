@@ -1,24 +1,20 @@
-import { useState } from "react";
 import VoiceInput from "./Components/VoiceInput";
-import { HashLink } from "react-router-hash-link";
+
+
 
 function App() {
   return (
     <div className=" h-screen  flex items-center  justify-around flex-col bg-slate-900 ">
       <div className="h-1/2 w-1/3" id="Sounddiv">
-        <VoiceInput />
+      <VoiceInput/>
       </div>
 
       <div className=" w-full ">
         <footer className="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
           <div className="mx-auto max-w-screen-xl text-center">
-          <HashLink className="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white"
-          smooth
-          to={"/"}
-          >
-
-              Sound Solver
-          </HashLink>
+          <a href="#Sounddiv" className="text-white text-3xl">
+            Sound Solver
+          </a>
             
             <p className="my-6 text-gray-500 dark:text-gray-400 capitalize">
               takes your voice as input and performs calculations for you
