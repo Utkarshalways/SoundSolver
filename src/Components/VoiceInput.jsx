@@ -12,6 +12,8 @@ const VoiceInput = () => {
     recognition.lang = 'en-US';
     recognition.start();
 
+    console.log("Started");
+
 
     const multiwordoperations = {
       "bracket start": "(",
@@ -109,7 +111,7 @@ const VoiceInput = () => {
     }
     }
   return (
-    <div className=" h-full w-full bg-slate-400 p-4 flex justify-center items-center flex-col  rounded-3xl gap-10 ">
+    <div className=" h-full w-full bg-slate-400 p-4 flex justify-center items-center flex-col  rounded-3xl gap-10 md:p-3 ">
       <div className=" w-5/6  justify-center items-center">
         <input
           type="text"
@@ -127,7 +129,7 @@ const VoiceInput = () => {
 
       <div
         onClick={handleVoiceInput}
-        className=" border bg-white rounded-full p-16  cursor-pointer uppercase"
+        className=" border bg-white rounded-full p-16  cursor-pointer uppercase md:p-14"
         id='mic'
       >
         mic
@@ -145,3 +147,6 @@ const VoiceInput = () => {
 }
 
 export default VoiceInput
+
+
+// check your mic is enable if it is not working
