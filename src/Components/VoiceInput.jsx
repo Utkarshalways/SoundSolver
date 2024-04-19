@@ -109,8 +109,8 @@ const VoiceInput = () => {
     }
     }
   return (
-    <div className=" h-full w-full bg-slate-400 p-4 flex justify-center items-center flex-col  rounded-3xl gap-10">
-      <div className="w-2/3  justify-center items-center">
+    <div className=" h-full w-full bg-slate-400 p-4 flex justify-center items-center flex-col  rounded-3xl gap-10 ">
+      <div className=" w-5/6  justify-center items-center">
         <input
           type="text"
           value={expression}
@@ -127,10 +127,19 @@ const VoiceInput = () => {
 
       <div
         onClick={handleVoiceInput}
-        className="border bg-white rounded-full p-10  cursor-pointer uppercase"
+        className=" border bg-white rounded-full p-16  cursor-pointer uppercase"
+        id='mic'
       >
         mic
       </div>
+      <style>
+        {`
+        #mic{
+          {/* background-color:black;
+          color:white; */}
+        }
+        `}
+      </style>
     </div>
   );
 }

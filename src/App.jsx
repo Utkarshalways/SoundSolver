@@ -15,7 +15,6 @@ function App() {
           <a href="#Sounddiv" className="text-white text-3xl">
             Sound Solver
           </a>
-            
             <p className="my-6 text-gray-500 dark:text-gray-400 capitalize">
               takes your voice as input and performs calculations for you
               instantly.
